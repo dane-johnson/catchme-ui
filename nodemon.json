@@ -1,5 +1,4 @@
 {
-
   "ignore": [],
   "watch": ["src", "public"],
   "exec": ["npm run build && npm start"],
