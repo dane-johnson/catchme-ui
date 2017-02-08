@@ -12,9 +12,13 @@ const App = (props) => (
       <PageHeader>Catch@Me</PageHeader>
       <p><em>{`
         Catch@Me is the next ARG trend. Also I made it to fuck around with my
-        friends.
+        friends, so keep your expectations and the server load down.
         `}</em></p>
-      <Button onClick={props.onPress}>Start!</Button>
+      <Button
+        onClick={props.onPress}
+        bsStyle="primary"
+         bsSize="large"
+         >Start!</Button>
     </div>
   </div>
 )
