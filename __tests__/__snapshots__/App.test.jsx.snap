@@ -1,5 +1,35 @@
 exports[`<App /> renders correctly 1`] = `
-<h1>
-  Hello World!
-</h1>
+<div>
+  <style>
+    
+          .centered{
+            text-align: center
+          }
+          
+  </style>
+  <div
+    className="centered">
+    <div
+      className="page-header">
+      <h1>
+        Catch@Me
+      </h1>
+    </div>
+    <p>
+      <em>
+        
+                Catch@Me is the next ARG trend. Also I made it to fuck around with my
+                friends, so keep your expectations and the server load down.
+                
+      </em>
+    </p>
+    <button
+      className="btn btn-lg btn-primary"
+      disabled={false}
+      onClick={undefined}
+      type="button">
+      Start!
+    </button>
+  </div>
+</div>
 `;
