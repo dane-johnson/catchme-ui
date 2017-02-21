@@ -1,9 +1,9 @@
 import React from 'react'
 import { PageHeader, Button } from 'react-bootstrap'
 
-import '../css/centered'
+import '../css/centered.css'
 
-const App = (props) => (
+const App = ({onPress}) => (
   <div className="centered">
     <PageHeader>Catch@Me</PageHeader>
     <p><em>{`
@@ -11,7 +11,7 @@ const App = (props) => (
       friends, so keep your expectations and the server load down.
       `}</em></p>
     <Button
-      onClick={props.onPress}
+      onClick={onPress}
       bsStyle="primary"
        bsSize="large"
        >Start!</Button>
