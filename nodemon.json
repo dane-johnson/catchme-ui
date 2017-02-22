@@ -2,6 +2,6 @@
 
   "ignore": [],
   "watch": ["src", "public"],
-  "exec": ["npm run build && npm start"],
+  "exec": ["yarn run build && yarn start"],
   "ext": "jsx js html css"
 }
