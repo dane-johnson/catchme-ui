@@ -2,7 +2,7 @@ import React from 'react'
 import { FormGroup, FormControl,
    ControlLabel, Button, PageHeader } from 'react-bootstrap'
 
-import '../css/centered.css'
+import '../css/position.css'
 
 const Join = ({onChange, onSubmit}) => (
   <div className="centered">

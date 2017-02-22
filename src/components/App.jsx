@@ -1,7 +1,7 @@
 import React from 'react'
 import { PageHeader, Button } from 'react-bootstrap'
 
-import '../css/centered.css'
+import '../css/position.css'
 
 const App = ({onPress}) => (
   <div className="centered">
