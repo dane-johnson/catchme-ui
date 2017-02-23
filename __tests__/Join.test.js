@@ -1,6 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import Join from '../src/components/Join.jsx'
+import Join from '../src/components/Join'
 
 
 

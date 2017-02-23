@@ -1,6 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import Lobby from '../src/components/Lobby.jsx'
+import Lobby from '../src/components/Lobby'
 
 const mockPlayers = [
   "Dane",
