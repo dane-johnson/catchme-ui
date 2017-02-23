@@ -1,7 +1,0 @@
-{
-
-  "ignore": [],
-  "watch": ["src", "public"],
-  "exec": ["yarn run build && yarn start"],
-  "ext": "jsx js html css"
-}
