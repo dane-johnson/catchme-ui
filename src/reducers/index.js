@@ -7,6 +7,9 @@ const reducer = (state=defaultState, action) => {
       state = {...state, context: action.payload}
       break;
     }
+    default: {
+      state = {...state}
+    }
   }
   return state;
 }
