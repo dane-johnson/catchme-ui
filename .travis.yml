@@ -1,7 +1,5 @@
 language: node_js
-node_js: 4
-install:
-  - npm install
+node_js: 6.9
 script:
   - npm run test
   - npm run build
