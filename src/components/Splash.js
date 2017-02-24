@@ -3,7 +3,7 @@ import { PageHeader, Button } from 'react-bootstrap'
 
 import '../css/position.css'
 
-const App = ({onPress}) => (
+const Splash = ({onPress}) => (
   <div className="centered">
     <PageHeader>Catch@Me</PageHeader>
     <p><em>{`
@@ -18,4 +18,4 @@ const App = ({onPress}) => (
   </div>
 )
 
-export default App;
+export default Splash;
