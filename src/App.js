@@ -16,6 +16,9 @@ const App = ({ context }) => {
     case 'LOBBY': {
       return <Lobby />;
     }
+    default: {
+      return null;
+    }
   }
 }
 
