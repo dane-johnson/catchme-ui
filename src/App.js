@@ -2,8 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { PregameContainer } from './containers'
-import Join from './components/Join';
-import Lobby from './components/Lobby';
+import { JoinContainer } from './containers'
 
 const App = ({ context }) => {
   switch (context) {
@@ -11,10 +10,7 @@ const App = ({ context }) => {
       return <PregameContainer />;
     }
     case 'JOIN': {
-      return <Join />;
-    }
-    case 'LOBBY': {
-      return <Lobby />;
+      return <JoinContainer />;
     }
     default: {
       return null;
