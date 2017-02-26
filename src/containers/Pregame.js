@@ -6,6 +6,12 @@ import { joinGame, promote } from '../actions'
 import Join from '../components/Join'
 import Lobby from '../components/Lobby'
 
+const attemptJoin = (username, roomCode, dispatch) => {
+  //TODO Add call to socket
+  dispatch(joinGame(username, roomCode))
+  dispatch(promote())
+}
+
 const Pregame = ({ joinState, dispatch }) => {
   if (!joinState.joined) {
     return (
@@ -22,12 +28,6 @@ const Pregame = ({ joinState, dispatch }) => {
       players={[]}
     />
   }
-}
-
-const attemptJoin = (username, roomCode, dispatch) => {
-  //TODO Add call to socket
-  dispatch(joinGame(username, roomCode))
-  dispatch(promote())
 }
 
 const mapStateToProps = (state) => ({
