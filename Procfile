@@ -1,1 +1,2 @@
-dev: serve build -p $PORT
+web: serve build -p $PORT
+dev: yarn start
