@@ -6,7 +6,7 @@ import { joinGame, promote } from '../actions'
 import Join from '../components/Join'
 import Lobby from '../components/Lobby'
 
-const JoinContainer = ({ joinState, dispatch }) => {
+const Pregame = ({ joinState, dispatch }) => {
   if (!joinState.joined) {
     return (
       <Join
@@ -34,4 +34,4 @@ const mapStateToProps = (state) => ({
   joinState: state.joinState
 })
 
-export default connect(mapStateToProps)(JoinContainer)
+export default connect(mapStateToProps)(Pregame)

@@ -1,4 +1,4 @@
-import PregameContainer from './PregameContainer'
-import JoinContainer from './JoinContainer'
+import Welcome from './Welcome'
+import Pregame from './Pregame'
 
-export { PregameContainer, JoinContainer }
+export { Welcome, Pregame }

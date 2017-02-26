@@ -4,8 +4,8 @@ import { switchContext } from '../actions'
 
 import Splash from '../components/Splash'
 
-const PregameContainer = ({dispatch}) => (
+const Welcome = ({dispatch}) => (
   <Splash onJoin={() => dispatch(switchContext('JOIN'))} />
 )
 
-export default connect()(PregameContainer);
+export default connect()(Welcome);
