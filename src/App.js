@@ -1,14 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Splash from './components/Splash';
+import { PregameContainer } from './containers'
 import Join from './components/Join';
 import Lobby from './components/Lobby';
 
 const App = ({ context }) => {
   switch (context) {
-    case 'SPLASH': {
-      return <Splash />;
+    case 'PRE_GAME': {
+      return <PregameContainer />;
     }
     case 'JOIN': {
       return <Join />;

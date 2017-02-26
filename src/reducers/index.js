@@ -1,5 +1,5 @@
 const defaultState = {
-  context: 'SPLASH'
+  context: 'PRE_GAME'
 }
 const reducer = (state=defaultState, action) => {
   switch (action.type) {

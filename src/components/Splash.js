@@ -3,7 +3,7 @@ import { PageHeader, Button } from 'react-bootstrap'
 
 import '../css/position.css'
 
-const Splash = ({onPress}) => (
+const Splash = ({onJoin}) => (
   <div className="centered">
     <PageHeader>Catch@Me</PageHeader>
     <p><em>{`
@@ -11,10 +11,10 @@ const Splash = ({onPress}) => (
       friends, so keep your expectations and the server load down.
       `}</em></p>
     <Button
-      onClick={onPress}
+      onClick={onJoin}
       bsStyle="primary"
-       bsSize="large"
-       >Start!</Button>
+      bsSize="large"
+    >Start!</Button>
   </div>
 )
 
