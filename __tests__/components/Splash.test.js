@@ -1,11 +1,11 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import App from '../src/components/App'
+import Splash from '../../src/components/Splash'
 
-describe("<App />", () => {
+describe("<Splash />", () => {
   it('renders correctly', () => {
     const tree = renderer.create(
-      <App />
+      <Splash />
     ).toJSON();
     expect(tree).toMatchSnapshot();
   })

@@ -1,4 +1,4 @@
-exports[`<App /> renders correctly 1`] = `
+exports[`<Splash /> renders correctly 1`] = `
 <div
   className="centered">
   <div

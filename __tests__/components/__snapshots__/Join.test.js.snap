@@ -37,7 +37,7 @@ exports[`<Join /> renders correctly 1`] = `
     <button
       className="btn btn-primary"
       disabled={false}
-      onClick={undefined}
+      onClick={[Function]}
       type="button">
       Join
     </button>
