@@ -6,10 +6,10 @@ import { Pregame } from './containers'
 
 const App = ({ context }) => {
   switch (context) {
-    case 'PRE_GAME': {
+    case 'WELCOME': {
       return <Welcome />;
     }
-    case 'JOIN': {
+    case 'PREGAME': {
       return <Pregame />;
     }
     default: {
