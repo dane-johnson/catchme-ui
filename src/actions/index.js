@@ -11,3 +11,12 @@ export const joinGame = (username, roomCode) => ({
 export const promote = () => ({
   type: "PROMOTE"
 })
+
+export const unbone = () => ({
+  type: "UNBONE"
+})
+
+export const updatePosition = (position) => ({
+  type: "POSITION_CHANGED",
+  payload: position
+})
