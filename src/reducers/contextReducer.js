@@ -1,4 +1,4 @@
-const defaultState = 'WELCOME'
+const defaultState = 'INGAME'
 const context = (state=defaultState, action) => {
   switch (action.type) {
     case "SWITCH_CONTEXT": {
