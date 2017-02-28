@@ -1,20 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
+import thunk from 'redux-thunk'
 import reducer from './reducers';
 import App from './App';
 import './index.css';
 
 let store;
-if (process.env.NODE_ENV === "DEV") {
+if (process.env.NODE_ENV === "development") {
   store = createStore(
     reducer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    compose(applyMiddleware(thunk), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
   );
 }
 else {
-  store = createStore(reducer)
+  store = createStore(reducer, applyMiddleware(thunk))
 }
 
 ReactDOM.render(
