@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import registerListener from '../lib/geowatcher'
 
 
 import NavScreen from '../components/NavScreen'

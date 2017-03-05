@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { joinGame, promote } from '../actions'
+import { switchContext, joinGame, promote } from '../actions'
 
 import Join from '../components/Join'
 import Lobby from '../components/Lobby'
@@ -10,6 +10,9 @@ const attemptJoin = (username, roomCode, dispatch) => {
   //TODO Add call to socket
   dispatch(joinGame(username, roomCode))
   dispatch(promote())
+}
+const onStart = (dispatch) => {
+  dispatch(switchContext("INGAME"))
 }
 
 const Pregame = ({ joinState, dispatch }) => {
@@ -26,6 +29,7 @@ const Pregame = ({ joinState, dispatch }) => {
       roomCode={joinState.roomCode}
       leader={joinState.leader}
       players={[]}
+      onStart={() => onStart(dispatch)}
     />
   }
 }
