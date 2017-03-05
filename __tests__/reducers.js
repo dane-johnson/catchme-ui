@@ -15,6 +15,10 @@ describe('reducer', () => {
       geo: {
         boned: true,
         position: null
+      },
+      ingame: {
+        feed: [],
+        target: null
       }
     })
   })
@@ -88,6 +92,31 @@ describe('reducer', () => {
           timestamp: 1000
         }
       }))
+    })
+  })
+
+  describe('ingame', () => {
+    it('should handle SET_TARGET', () => {
+      const target = {
+        name: "Frank"
+      }
+      expect(
+        reducer({}, {
+          type: "SET_TARGET",
+          payload: target
+        }).ingame
+      ).toEqual(expect.objectContaining({
+        target: target
+      }))
+    })
+    it('should handle ADD_FEED_EVENT', () => {
+      const event = 'Donnie killed Frank'
+      expect(
+        reducer({}, {
+          type: "ADD_FEED_EVENT",
+          payload: event
+        }).ingame.feed[0]
+      ).toEqual(event)
     })
   })
 })
