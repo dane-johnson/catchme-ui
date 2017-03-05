@@ -4,7 +4,7 @@ import { Button } from 'react-bootstrap'
 import '../css/position.css'
 import '../css/playerlist.css'
 
-const Lobby = ({roomCode, leader, players}) => {
+const Lobby = ({roomCode, leader, players, onStart}) => {
   const playerList = players.map(player => <div key={player} className="playerListItem">{player}</div>);
   return (
     <div className="centered">
@@ -17,8 +17,8 @@ const Lobby = ({roomCode, leader, players}) => {
         {playerList}
       </div>
       <div className="footer">
-      {leader &&
-        <Button bsStyle="primary" disabled={players.length <= 1}>Start Game</Button>
+      {leader && //XXX: set minimum to 1 for release
+        <Button bsStyle="primary" disabled={players.length < 0} onClick={onStart}>Start Game</Button>
       }
       {!leader &&
         <h4>Waiting for leader to start game.</h4>

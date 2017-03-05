@@ -11,6 +11,14 @@ describe('reducer', () => {
         leader: false,
         username: "",
         roomCode: ""
+      },
+      geo: {
+        boned: true,
+        position: null
+      },
+      ingame: {
+        feed: [],
+        target: null
       }
     })
   })
@@ -50,6 +58,65 @@ describe('reducer', () => {
       ).toEqual(expect.objectContaining({
         leader: true
       }))
+    })
+  })
+
+  describe('geo', () => {
+    it('should handle UNBONE', () => {
+      expect(
+        reducer({}, {
+          type: "UNBONE"
+        }).geo
+      ).toEqual(expect.objectContaining({
+        boned: false
+      }))
+    })
+    it('should handle POSITION_CHANGED', () => {
+      expect(
+        reducer({}, {
+          type: "POSITION_CHANGED",
+          payload: {
+            coords: {
+              longitude: 3.14,
+              latitude: 1.59
+            },
+            timestamp: 1000
+          }
+        }).geo
+      ).toEqual(expect.objectContaining({
+        position: {
+          coords: {
+            longitude: 3.14,
+            latitude: 1.59
+          },
+          timestamp: 1000
+        }
+      }))
+    })
+  })
+
+  describe('ingame', () => {
+    it('should handle SET_TARGET', () => {
+      const target = {
+        name: "Frank"
+      }
+      expect(
+        reducer({}, {
+          type: "SET_TARGET",
+          payload: target
+        }).ingame
+      ).toEqual(expect.objectContaining({
+        target: target
+      }))
+    })
+    it('should handle ADD_FEED_EVENT', () => {
+      const event = 'Donnie killed Frank'
+      expect(
+        reducer({}, {
+          type: "ADD_FEED_EVENT",
+          payload: event
+        }).ingame.feed[0]
+      ).toEqual(event)
     })
   })
 })

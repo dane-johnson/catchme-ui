@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { Welcome } from './containers'
-import { Pregame } from './containers'
+import { Welcome, Pregame, Ingame } from './containers'
 
 const App = ({ context }) => {
   switch (context) {
@@ -11,6 +10,9 @@ const App = ({ context }) => {
     }
     case 'PREGAME': {
       return <Pregame />;
+    }
+    case 'INGAME': {
+      return <Ingame />
     }
     default: {
       return null;
