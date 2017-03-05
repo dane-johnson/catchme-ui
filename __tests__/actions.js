@@ -29,4 +29,26 @@ describe('actions', () => {
 
     expect(actions.promote()).toEqual(expected);
   })
+
+  it('creates an action to set the target', () => {
+    const target = {
+      name: 'Frank'
+    }
+    const expected = {
+      type: 'SET_TARGET',
+      payload: target
+    }
+
+    expect(actions.setTarget(target)).toEqual(expected);
+  })
+
+  it('creates an action to add a feed event', () => {
+    const event = 'Donnie killed Frank'
+    const expected = {
+      type: 'ADD_FEED_EVENT',
+      payload: event
+    }
+
+    expect(actions.addFeedEvent(event)).toEqual(expected);
+  })
 })
