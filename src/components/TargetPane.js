@@ -11,7 +11,7 @@ const style = {
   }
 }
 
-const TargetPane = ( {target} ) => (
+const TargetPane = ({target}) => (
   <Well>
     <img alt="User Image" style={style.userImage}></img>
     <span style={style.userInfo}>Name: {target}</span>

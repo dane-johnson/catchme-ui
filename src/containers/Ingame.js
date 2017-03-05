@@ -7,19 +7,20 @@ import NavScreen from '../components/NavScreen'
 import TargetPane from '../components/TargetPane'
 import FeedPane from '../components/FeedPane'
 
-const Ingame = ({position, target}) => {
+const Ingame = ({position, target, feed}) => {
   return (
     <div>
       <NavScreen position={position}/>
-      <TargetPane />
-      <FeedPane />
+      <TargetPane target={target}/>
+      <FeedPane feed={feed}/>
     </div>
   )
 }
 
 const mapStateToProps = (state) => ({
   position: state.geo.position,
-  target: state.joinState.username
+  target: state.ingame.target,
+  feed: state.ingame.feed
 })
 
 export default connect(mapStateToProps)(Ingame)
