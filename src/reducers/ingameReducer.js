@@ -4,9 +4,10 @@ const defaultState = {
 }
 const ingame = (state=defaultState, action) => {
   switch (action.type) {
-    case "FEED_EVENT": {
+    case "ADD_FEED_EVENT": {
       const feed = state.feed.slice(); //For immutability
-      feed.unshift(action.payload) //Put the important stuff first
+      const event = action.payload;
+      feed.unshift(event) //Put the important stuff first
       state = {...state, feed}
       break;
     }
