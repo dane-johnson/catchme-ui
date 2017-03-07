@@ -3,23 +3,18 @@ import { connect } from 'react-redux'
 
 
 import NavScreen from '../components/NavScreen'
-import TargetPane from '../components/TargetPane'
-import FeedPane from '../components/FeedPane'
 
-const Ingame = ({position, target, feed}) => {
+const Ingame = ({position, size, alive}) => {
   return (
     <div>
-      <NavScreen position={position}/>
-      <TargetPane target={target}/>
-      <FeedPane feed={feed}/>
+      <NavScreen position={position} size={size}/>
     </div>
   )
 }
 
 const mapStateToProps = (state) => ({
   position: state.geo.position,
-  target: state.ingame.target,
-  feed: state.ingame.feed
+  ...state.playerState
 })
 
 export default connect(mapStateToProps)(Ingame)
