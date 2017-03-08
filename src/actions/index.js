@@ -8,10 +8,6 @@ export const joinGame = (username, roomCode) => ({
   payload: {username, roomCode}
 });
 
-export const promote = () => ({
-  type: "PROMOTE"
-})
-
 export const unbone = () => ({
   type: "UNBONE"
 })
@@ -21,12 +17,11 @@ export const updatePosition = (position) => ({
   payload: position
 })
 
-export const setTarget = (target) => ({
-  type: 'SET_TARGET',
-  payload: target
+export const setSize = (size) => ({
+  type: "SET_SIZE",
+  payload: size
 })
 
-export const addFeedEvent = (event) => ({
-  type: 'ADD_FEED_EVENT',
-  payload: event
+export const die = () => ({
+  type: "DIE"
 })

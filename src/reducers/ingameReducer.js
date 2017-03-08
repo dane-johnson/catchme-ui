@@ -1,20 +1,17 @@
 const defaultState = {
-  feed: [],
-  target: null
+  size: 1,
+  alive: true
 }
-const ingame = (state=defaultState, action) => {
+const playerState = (state=defaultState, action) => {
   switch (action.type) {
-    case "ADD_FEED_EVENT": {
-      const feed = state.feed.slice(); //For immutability
-      const event = action.payload;
-      feed.unshift(event) //Put the important stuff first
-      state = {...state, feed}
-      break;
+    case "SET_SIZE": {
+      const size = action.payload
+      state = {...state, size}
+      break
     }
-    case "SET_TARGET": {
-      const target = action.payload;
-      state = {...state, target};
-      break;
+    case "DIE": {
+      state = {...state, alive: false}
+      break
     }
     default: {
       state = {...state}
@@ -23,4 +20,4 @@ const ingame = (state=defaultState, action) => {
   return state;
 }
 
-export default ingame
+export default playerState

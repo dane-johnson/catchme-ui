@@ -8,7 +8,6 @@ describe('reducer', () => {
       context: 'WELCOME',
       joinState: {
         joined: false,
-        leader: false,
         username: "",
         roomCode: ""
       },
@@ -16,9 +15,9 @@ describe('reducer', () => {
         boned: true,
         position: null
       },
-      ingame: {
-        feed: [],
-        target: null
+      playerState: {
+        size: 1,
+        alive: true
       }
     })
   })
@@ -48,15 +47,6 @@ describe('reducer', () => {
         joined: true,
         username: "Donnie",
         roomCode: "DARK"
-      }))
-    })
-    it('should handle PROMOTE', () => {
-      expect(
-        reducer({}, {
-          type: "PROMOTE"
-        }).joinState
-      ).toEqual(expect.objectContaining({
-        leader: true
       }))
     })
   })
@@ -95,28 +85,22 @@ describe('reducer', () => {
     })
   })
 
-  describe('ingame', () => {
-    it('should handle SET_TARGET', () => {
-      const target = {
-        name: "Frank"
-      }
+  describe('playerState', () => {
+    it('should handle SET_SIZE', () => {
+      const size = 2
       expect(
         reducer({}, {
-          type: "SET_TARGET",
-          payload: target
-        }).ingame
-      ).toEqual(expect.objectContaining({
-        target: target
-      }))
+          type: "SET_SIZE",
+          payload: size
+        }).playerState
+      ).toEqual(expect.objectContaining({size}))
     })
-    it('should handle ADD_FEED_EVENT', () => {
-      const event = 'Donnie killed Frank'
+    it('should handle DIE', () => {
       expect(
         reducer({}, {
-          type: "ADD_FEED_EVENT",
-          payload: event
-        }).ingame.feed[0]
-      ).toEqual(event)
+          type: "DIE"
+        }).playerState
+      ).toEqual(expect.objectContaining({alive: false}))
     })
   })
 })

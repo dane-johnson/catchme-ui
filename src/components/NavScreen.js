@@ -1,5 +1,5 @@
 import React from 'react'
-import { Map, Marker, TileLayer } from 'react-leaflet'
+import { Map, Marker, TileLayer, Circle } from 'react-leaflet'
 import '../css/map.css'
 
 class NavScreen extends React.Component{
@@ -11,7 +11,7 @@ class NavScreen extends React.Component{
     }
   }
   render() {
-    const { position } = this.props;
+    const { position, size } = this.props;
     const { center } = this.state;
     if (!position) return null;
     const me = [position.coords.latitude, position.coords.longitude]
@@ -22,6 +22,7 @@ class NavScreen extends React.Component{
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
         <Marker position={me}/>
+        <Circle center={me} radius={size}/>
       </Map>
     )
   }

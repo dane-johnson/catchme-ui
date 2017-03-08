@@ -7,48 +7,45 @@ describe('actions', () => {
       type: "SWITCH_CONTEXT",
       payload: context
     };
-
     expect(actions.switchContext(context)).toEqual(expected);
   });
 
-  it('creates an action to join a game', () => {
+  it('creates an action to join a room', () => {
     const username = "Donnie"
     const roomCode = "DARK"
     const expected = {
       type: "JOIN_ROOM",
       payload: {username, roomCode}
     }
-
     expect(actions.joinGame(username, roomCode)).toEqual(expected);
   })
 
-  it('creates an action to promote the player', () => {
+  it('creates an action to set size', () => {
+    const size = 2
     const expected = {
-      type: "PROMOTE"
+      type: 'SET_SIZE',
+      payload: size
     }
-
-    expect(actions.promote()).toEqual(expected);
+    expect(actions.setSize(size)).toEqual(expected);
   })
-
-  it('creates an action to set the target', () => {
-    const target = {
-      name: 'Frank'
-    }
+  it('creates an action to die', () => {
     const expected = {
-      type: 'SET_TARGET',
-      payload: target
+      type: 'DIE'
     }
-
-    expect(actions.setTarget(target)).toEqual(expected);
+    expect(actions.die()).toEqual(expected)
   })
-
-  it('creates an action to add a feed event', () => {
-    const event = 'Donnie killed Frank'
+  it('creates an action to unbone', () => {
     const expected = {
-      type: 'ADD_FEED_EVENT',
-      payload: event
+      type: 'UNBONE'
     }
-
-    expect(actions.addFeedEvent(event)).toEqual(expected);
+    expect(actions.unbone()).toEqual(expected)
+  })
+  it('creates an action to change the position', () => {
+    const position = {longitude: 6.9, latitude: 9.6}
+    const expected = {
+      type: 'POSITION_CHANGED',
+      payload: position
+    }
+    expect(actions.updatePosition(position)).toEqual(expected)
   })
 })
