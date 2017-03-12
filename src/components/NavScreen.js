@@ -2,7 +2,7 @@ import React from 'react'
 import { Map, Marker, TileLayer, Circle } from 'react-leaflet'
 import '../css/map.css'
 
-const CENTER_RESET_DELAY = 15000
+const CENTER_RESET_DELAY = 10000
 
 const getLatLng = (position) => [position.coords.latitude, position.coords.longitude]
 
