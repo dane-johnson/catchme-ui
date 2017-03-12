@@ -22,12 +22,12 @@ class NavScreen extends React.Component{
     const { timeoutId } = this.state
     if (!timeoutId) return
     window.clearTimeout(timeoutId)
-    this.setState({timeoutId: null})
+    this.setState({timeoutId: null, followMarker: false})
   }
   handleMoveend(ev) {
     const center = ev.target.getCenter()
     const timeoutId = window.setTimeout(this.returnToMarker, CENTER_RESET_DELAY)
-    this.setState({center, timeoutId, followMarker: false})
+    this.setState({center, timeoutId})
   }
   returnToMarker() {
     const { position } = this.props
