@@ -41,7 +41,7 @@ class NavScreen extends React.Component{
     const mapCenter = (followMarker ? me : center)
     return (
       <Map
-        center={center}
+        center={mapCenter}
         zoom={20}
         onMove={this.handleMove}
         onMoveend={this.handleMoveend}
