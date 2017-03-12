@@ -2,7 +2,7 @@ import React from 'react'
 import { Map, Marker, TileLayer, Circle } from 'react-leaflet'
 import '../css/map.css'
 
-const CENTER_RESET_DELAY = 6000
+const CENTER_RESET_DELAY = 10000
 
 const getLatLng = (position) => [position.coords.latitude, position.coords.longitude]
 
@@ -11,41 +11,47 @@ class NavScreen extends React.Component{
     super(props);
     const { position } = props;
     this.state = {
-      center: getLatLng(position),
-      followMarker: true
+      center: getLatLng(position)
     }
     this.handleMoveend = this.handleMoveend.bind(this);
     this.returnToMarker = this.returnToMarker.bind(this);
     this.handleMove = this.handleMove.bind(this);
+    this.startResetDaemon = this.startResetDaemon.bind(this);
+    this.stopResetDaemon = this.stopResetDaemon.bind(this);
   }
   handleMove() {
-    const { timeoutId } = this.state
-    if (!timeoutId) return
-    window.clearTimeout(timeoutId)
-    this.setState({timeoutId: null})
+    this.stopResetDaemon()
   }
   handleMoveend(ev) {
     const center = ev.target.getCenter()
-    const timeoutId = window.setTimeout(this.returnToMarker, CENTER_RESET_DELAY)
-    this.setState({center, timeoutId, followMarker: false})
+    this.setState({center})
+    this.startResetDaemon()
   }
   returnToMarker() {
     const { position } = this.props
-    this.setState({center: getLatLng(position), followMarker: true})
+    this.setState({center: getLatLng(position)})
+  }
+  startResetDaemon() {
+    const intervalId = window.setInterval(this.returnToMarker, CENTER_RESET_DELAY)
+    this.setState({intervalId})
+  }
+  stopResetDaemon() {
+    const { intervalId } = this.state
+    if (!intervalId) return
+    window.clearInterval(intervalId)
+    this.setState({intervalId: null})
   }
   render() {
     const { position, size } = this.props;
-    const { center, followMarker } = this.state;
+    const { center } = this.state;
     if (!position) return null;
     const me = getLatLng(position);
-    const mapCenter = (followMarker ? me : center)
     return (
       <Map
-        center={mapCenter}
+        center={center}
         zoom={20}
         onMove={this.handleMove}
         onMoveend={this.handleMoveend}
-        useFlyTo={true}
         >
         <TileLayer
           url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
