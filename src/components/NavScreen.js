@@ -24,6 +24,7 @@ class NavScreen extends React.Component{
   }
   handleMoveend(ev) {
     const center = ev.target.getCenter()
+    this.setState({center})
     this.startResetDaemon()
   }
   returnToMarker() {
