@@ -2,7 +2,7 @@ import React from 'react'
 import { Map, Marker, TileLayer, Circle } from 'react-leaflet'
 import '../css/map.css'
 
-const CENTER_RESET_DELAY = 6000
+const CENTER_RESET_DELAY = 15000
 
 const getLatLng = (position) => [position.coords.latitude, position.coords.longitude]
 
@@ -45,7 +45,6 @@ class NavScreen extends React.Component{
         zoom={20}
         onMove={this.handleMove}
         onMoveend={this.handleMoveend}
-        useFlyTo={true}
         >
         <TileLayer
           url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
